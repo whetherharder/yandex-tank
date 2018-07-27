@@ -135,3 +135,7 @@ def test_validate(ini_file):
 ])
 def test_convert_single_option(key, value, expected):
     assert convert_single_option(key, value) == expected
+
+def test_influx_convert():
+    print(convert_ini('influx.ini'))
+

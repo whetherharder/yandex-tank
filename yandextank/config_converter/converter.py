@@ -205,11 +205,17 @@ class Option(object):
         },
         'DataUploader': {
             'lock_targets': lambda k, v: {k: v.strip().split() if v != 'auto' else v}
+        },
+        'Influx': {
+            'host': lambda k,v : {'address':v},
+            'db_name': lambda k,v : {'database':v}
         }
+
     }
     CONVERTERS_FOR_UNKNOWN = {
         'DataUploader': lambda k, v: {'meta': {k: v}},
-        'JMeter': lambda k, v: {'variables': {k: v}}
+        'JMeter': lambda k, v: {'variables': {k: v}},
+        'Influx': lambda k,v : {'custom_tags':{k: v}}
     }
 
     def __init__(self, plugin_name, key, value, schema=None):

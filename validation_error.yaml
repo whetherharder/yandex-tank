@@ -1,6 +1,0 @@
-core:
-- phantom: [unknown field]
-influx:
-- enabled: [required field]
-jmeter:
-- package: [required field]
